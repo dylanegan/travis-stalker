@@ -4,7 +4,7 @@
 
 > Maybe I should just stick to stalking. Maybe that's my system.
 
-Completely stolen from a [gist](https://gist.github.com/3186275) by @sosedoff.
+Completely stolen from a [gist](https://gist.github.com/3186275) by @[sosedoff](https://github.com/sosedoff).
 
 ## Installation
 
@@ -20,7 +20,7 @@ $ travis-stalker --help
 
 ## License
 
-Copyright (c) 2012 Dylan Egan
+Copyright (c) 2012 Dan Sosedoff, Dylan Egan
 
 MIT License
 
