@@ -4,6 +4,8 @@
 
 > Maybe I should just stick to stalking. Maybe that's my system.
 
+Completely stolen from a [gist](https://gist.github.com/3186275) by @sosedoff.
+
 ## Installation
 
 ```
