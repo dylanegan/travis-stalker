@@ -1,6 +1,6 @@
 # Travis::Stalker
 
-![](https://github.com/dylanegan/travis-stalker/raw/master/travis-stalker.jpg)
+![](https://github.com/dylanegan/travis-stalker/raw/master/travis-stalker.png)
 
 > Maybe I should just stick to stalking. Maybe that's my system.
 
