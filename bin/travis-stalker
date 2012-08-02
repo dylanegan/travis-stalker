@@ -1,0 +1,10 @@
+#!/usr/bin/env ruby
+
+$:.unshift File.expand_path("../../lib", __FILE__)
+
+require "rubygems"
+require "bundler/setup"
+
+require "travis/stalker/cli"
+
+Travis::Stalker::CLI.run
