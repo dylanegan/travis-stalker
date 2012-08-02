@@ -13,10 +13,18 @@ module Travis
       #
       # publisher_token - pusher token id
       # projects - Array of projects to stalk
+      # regex - if true then accept partial matches
       # 
-      def initialize(pusher_token, projects=[])
-        @socket    = PusherClient::Socket.new(pusher_token)
+      def initialize(pusher_token, projects=[], regex=false)
         @projects = projects
+        @regex = regex
+        @socket    = PusherClient::Socket.new(pusher_token)
+
+        Travis::Stalker.log(regex: regex, projects: projects)
+      end
+
+      def regex?
+        @regex
       end
 
       def start
@@ -39,10 +47,20 @@ module Travis
         { title: title, message: message, url: url }
       end
 
+      def has_project?(project)
+        return true if projects.empty?
+
+        if regex?
+          projects.find { |p| project[/#{p}/] }
+        else
+          projects.include?(project)
+        end
+      end
+
       def notify(notification)
-        if projects.empty? || projects.include?(notification[:title])
+        if has_project?(notification[:title])
           Travis::Stalker.log({ notifying: true }.merge(notification))
-          TerminalNotifier.notify(notification.delete(:message), notification)
+          TerminalNotifier.notify(notification[:message], { title: notification[:title], open: notification[:url] })
         else
           Travis::Stalker.log({ notifying: false }.merge(notification))
         end

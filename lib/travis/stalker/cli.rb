@@ -20,6 +20,7 @@ module Travis
         option ["--projects"], "PROJECTS", "comma separated list of projects to stalk", :default => [] do |projects|
           projects.split(',')
         end
+        option "--regex", :flag, :default => false
 
         option "--version", :flag, "show version" do
           puts "stalking-travis #{Travis::Stalker::VERSION}"
@@ -29,7 +30,7 @@ module Travis
 
       class MainCommand < AbstractCommand
         def execute
-          stalker = Travis::Stalker::Charlie.new(pusher_token, projects)
+          stalker = Travis::Stalker::Charlie.new(pusher_token, projects, regex?)
           stalker.start
         end
       end
