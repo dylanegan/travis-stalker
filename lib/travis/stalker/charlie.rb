@@ -17,8 +17,8 @@ module Travis
       # 
       def initialize(pusher_token, projects=[], regex=false)
         @projects = projects
-        @regex = regex
-        @socket    = PusherClient::Socket.new(pusher_token)
+        @regex    = regex
+        @socket   = PusherClient::Socket.new(pusher_token)
 
         Travis::Stalker.log(regex: regex, projects: projects)
       end
