@@ -23,7 +23,7 @@ module Travis
         option "--regex", :flag, :default => false
 
         option "--version", :flag, "show version" do
-          puts "stalking-travis #{Travis::Stalker::VERSION}"
+          puts "travis-stalker #{Travis::Stalker::VERSION}"
           exit 0
         end
       end

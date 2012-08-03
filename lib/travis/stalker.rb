@@ -32,7 +32,7 @@ module Travis
     #
     # Returns the response from calling the logger with the arguments
     def self.log(data, &blk)
-      logger.call({ 'stalking-travis' => true }.merge(data), &blk)
+      logger.call({ 'travis-stalker' => true }.merge(data), &blk)
     end
 
     # Public: The logging location
